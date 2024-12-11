@@ -12,8 +12,6 @@ if you want to know the address
 solana address -k keys/admin.json
 ```
 
-#
-
 #### 2 Airdrop
 
 ```
@@ -26,6 +24,8 @@ https://explorer.solana.com/
 
 custom url rpc is here  
 https://rpc.test.honeycombprotocol.com
+
+#
 
 ### 2 Execute the transaction
 
