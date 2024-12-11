@@ -1,7 +1,7 @@
 import * as web3 from "@solana/web3.js";
 import fs from "fs";
 import path from "path";
-import { createEdgeClient } from "@Honeycomb-protocol/edge-client";
+import { createEdgeClient } from "@honeycomb-protocol/edge-client";
 import { sendTransactionForTests } from "@honeycomb-protocol/edge-client/client/helpers";
 
 const API_URL = "https://edge.test.honeycombprotocol.com/";
