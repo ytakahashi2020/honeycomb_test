@@ -1,9 +1,22 @@
 ```mermaid
 sequenceDiagram
-    participant A as Alice
-    participant B as Bob
-    A->>B: Hello Bob, how are you?
-    B-->>A: I'm fine, thanks!
+    participant Client
+    participant EdgeServer as API_URL (Edge Server)
+    participant Blockchain
+
+    Client->>EdgeServer: createEdgeClient(API_URL, enableSSE: true)
+    Client->>EdgeServer: createNewUserTransaction(wallet, info)
+    EdgeServer-->>Client: Transaction Data (createNewUserTransaction)
+    Client->>Blockchain: sendTransactionForTests(Transaction, Keypair)
+    Blockchain-->>EdgeServer: Transaction Confirmation
+    EdgeServer-->>Client: Transaction Result
+
+    Client->>EdgeServer: authRequest(wallet)
+    EdgeServer-->>Client: authRequest Message
+
+    Client->>Client: Sign Message with Secret Key
+    Client->>EdgeServer: authConfirm(wallet, signature)
+    EdgeServer-->>Client: Access Token
 ```
 
 ### 1 Preparation
