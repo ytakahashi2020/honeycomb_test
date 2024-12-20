@@ -56,7 +56,7 @@ createNewUserTransaction
 2 info  
 1)name  
 2)pfp
-https://lh3.googleusercontent.com/-Jsm7S8BHy4nOzrw2f5AryUgp9Fym2buUOkkxgNplGCddTkiKBXPLRytTMXBXwGcHuRr06EvJStmkHj-9JeTfmHsnT0prHg5Mhg
+https://lh3.googleusercontent.com/-Jsm7S8BHy4nOzrw2f5AryUgp9Fym2buUOkkxgNplGCddTkiKBXPLRytTMXBXwGcHuRr06EvJStmkHj-9JeTfmHsnT0prHg5Mhg  
 3)bio
 3 payer
 
@@ -74,6 +74,13 @@ https://lh3.googleusercontent.com/-Jsm7S8BHy4nOzrw2f5AryUgp9Fym2buUOkkxgNplGCddT
 
 ### 7 create a signature
 
-1 Convert into a UInt8Array
-
+1 convert into a UInt8Array  
 TextEncoder().encode
+2 sign the message  
+nacl.sign.detached
+3 encode the signature  
+base58.encode(signedUIntArray)
+
+### 8 get an access token
+
+1 client.authConfirm
