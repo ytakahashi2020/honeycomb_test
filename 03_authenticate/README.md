@@ -3,7 +3,6 @@
 #### 1 Generate a keypair
 
 ```
-solana-keygen new --outfile keys/admin.json --no-bip39-passphrase --force
 solana-keygen new --outfile keys/user.json --no-bip39-passphrase --force
 ```
 
@@ -16,9 +15,7 @@ solana address -k keys/admin.json
 #### 2 Airdrop
 
 ```
-solana airdrop 100 --url https://rpc.test.honeycombprotocol.com/ -k keys/admin.json
-
-solana airdrop 100 --url https://rpc.test.honeycombprotocol.com/ -k keys/user.json
+solana airdrop 10 --url https://rpc.test.honeycombprotocol.com/ -k keys/user.json
 ```
 
 #### 3 Check in the explorer
@@ -46,7 +43,7 @@ const API_URL = "https://edge.test.honeycombprotocol.com/"
 #### 3 create a client
 
 const client = createEdgeClient<true>(API_URL, true);  
-createEdgeClient from @Honeycomb-protocol/edge-client
+createEdgeClient from @honeycomb-protocol/edge-client
 
 #### 4 create a Transaction
 
@@ -56,7 +53,8 @@ createNewUserTransaction
 2 info  
 1)name  
 2)pfp
-https://lh3.googleusercontent.com/-Jsm7S8BHy4nOzrw2f5AryUgp9Fym2buUOkkxgNplGCddTkiKBXPLRytTMXBXwGcHuRr06EvJStmkHj-9JeTfmHsnT0prHg5Mhg  
+
+`https://lh3.googleusercontent.com/-Jsm7S8BHy4nOzrw2f5AryUgp9Fym2buUOkkxgNplGCddTkiKBXPLRytTMXBXwGcHuRr06EvJStmkHj-9JeTfmHsnT0prHg5Mhg`
 3)bio
 3 payer
 
@@ -76,8 +74,10 @@ https://lh3.googleusercontent.com/-Jsm7S8BHy4nOzrw2f5AryUgp9Fym2buUOkkxgNplGCddT
 
 1 convert into a UInt8Array  
 TextEncoder().encode
+
 2 sign the message  
 nacl.sign.detached
+
 3 encode the signature  
 base58.encode(signedUIntArray)
 
